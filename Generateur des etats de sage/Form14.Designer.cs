@@ -43,6 +43,7 @@
             this.caht = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lamarge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qteVendue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pourcentMarge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -143,7 +144,8 @@
             this.designation,
             this.caht,
             this.Lamarge,
-            this.qteVendue});
+            this.qteVendue,
+            this.pourcentMarge});
             this.dataGridView1.Location = new System.Drawing.Point(5, 123);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
@@ -186,6 +188,12 @@
             this.qteVendue.Name = "qteVendue";
             this.qteVendue.Width = 123;
             // 
+            // pourcentMarge
+            // 
+            this.pourcentMarge.HeaderText = "% Marge sur CA";
+            this.pourcentMarge.Name = "pourcentMarge";
+            this.pourcentMarge.Width = 86;
+            // 
             // Form14
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,5 +231,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn caht;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lamarge;
         private System.Windows.Forms.DataGridViewTextBoxColumn qteVendue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pourcentMarge;
     }
 }

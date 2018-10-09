@@ -32,6 +32,7 @@ namespace Generateur_des_etats_de_sage
             public decimal caht { get; set; }
             public decimal marge { get; set; }
             public decimal quantite { get; set; }
+            public decimal pourcentage { get; set; }
         }
 
         private void fermer_Click(object sender, EventArgs e)
@@ -136,6 +137,14 @@ namespace Generateur_des_etats_de_sage
             temp.caht = caht;
             temp.quantite = qte;
             temp.marge = marge(reff);
+            try
+            {
+                temp.pourcentage = Math.Round((temp.marge / temp.caht) * 100, 2);
+            }
+            catch
+            {
+                temp.pourcentage = 0;
+            }
 
             articles.Add(temp);
         }
@@ -165,12 +174,13 @@ namespace Generateur_des_etats_de_sage
 
             foreach (node n in articles)
             {
-                row = new string[5];
+                row = new string[6];
                 row[0] = n.reference;
                 row[1] = n.designation;
                 row[2] = DecimalToString(n.caht);
                 row[3] = DecimalToString(n.marge);
                 row[4] = DecimalToString(n.quantite);
+                row[5] = DecimalToString(n.pourcentage);
 
 
                 if (dataGridView1.InvokeRequired)
