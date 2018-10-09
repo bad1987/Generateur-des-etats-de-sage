@@ -57,6 +57,7 @@
             this.ventesJournalieresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prixVenteMajoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.utilisateursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.caHTParArticleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.resultat)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -250,7 +251,8 @@
             this.statistiquesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clientsToolStripMenuItem,
             this.regionToolStripMenuItem,
-            this.commerciauxToolStripMenuItem});
+            this.commerciauxToolStripMenuItem,
+            this.caHTParArticleToolStripMenuItem});
             this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
             this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.statistiquesToolStripMenuItem.Text = "Statistiques";
@@ -258,21 +260,21 @@
             // clientsToolStripMenuItem
             // 
             this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
-            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clientsToolStripMenuItem.Text = "Clients";
             this.clientsToolStripMenuItem.Click += new System.EventHandler(this.clientsToolStripMenuItem_Click);
             // 
             // regionToolStripMenuItem
             // 
             this.regionToolStripMenuItem.Name = "regionToolStripMenuItem";
-            this.regionToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.regionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.regionToolStripMenuItem.Text = "Region";
             this.regionToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
             // 
             // commerciauxToolStripMenuItem
             // 
             this.commerciauxToolStripMenuItem.Name = "commerciauxToolStripMenuItem";
-            this.commerciauxToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.commerciauxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.commerciauxToolStripMenuItem.Text = "Commerciaux";
             this.commerciauxToolStripMenuItem.Click += new System.EventHandler(this.commerciauxToolStripMenuItem_Click);
             // 
@@ -314,6 +316,13 @@
             this.utilisateursToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.utilisateursToolStripMenuItem.Text = "Utilisateurs";
             this.utilisateursToolStripMenuItem.Click += new System.EventHandler(this.utilisateursToolStripMenuItem_Click);
+            // 
+            // caHTParArticleToolStripMenuItem
+            // 
+            this.caHTParArticleToolStripMenuItem.Name = "caHTParArticleToolStripMenuItem";
+            this.caHTParArticleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.caHTParArticleToolStripMenuItem.Text = "CaHT par Article";
+            this.caHTParArticleToolStripMenuItem.Click += new System.EventHandler(this.caHTParArticleToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -377,6 +386,7 @@
         private System.Windows.Forms.ToolStripMenuItem ventesJournalieresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem utilisateursToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prixVenteMajoreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem caHTParArticleToolStripMenuItem;
     }
 }
 

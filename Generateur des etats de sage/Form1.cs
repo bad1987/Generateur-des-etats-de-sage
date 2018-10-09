@@ -217,5 +217,11 @@ namespace Generateur_des_etats_de_sage
             Form13 pvm = new Form13();
             pvm.Show();
         }
+
+        private void caHTParArticleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form14 cahtarticle = new Form14();
+            cahtarticle.Show();
+        }
     }
 }

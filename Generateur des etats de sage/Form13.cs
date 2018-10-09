@@ -66,14 +66,6 @@ namespace Generateur_des_etats_de_sage
 
         public void execute()
         {
-            /*
-             SELECT DISTINCT F_ARTICLE.AR_Ref,AR_Design,LS_NoSerie,LS_Peremption,LS_Qte,LS_QteRestant,(LS_Qte - LS_QteRestant) as 'Quantite vendue'
-                FROM F_ARTICLE,F_LOTSERIE 
-                WHERE F_ARTICLE.AR_Ref = F_LOTSERIE.AR_Ref
-	                AND ((F_LOTSERIE.DE_No=1) 
-	                AND LS_QteRestant > 0) 
-	                AND LS_Peremption > '20000101'
-             */
             string sql;
             sql = @"SELECT DISTINCT AR_Design
 				    ,AR_PrixVen
