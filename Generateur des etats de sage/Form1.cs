@@ -223,5 +223,11 @@ namespace Generateur_des_etats_de_sage
             Form14 cahtarticle = new Form14();
             cahtarticle.Show();
         }
+
+        private void gestionDesReglementsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form15 gesreg = new Form15();
+            gesreg.Show();
+        }
     }
 }

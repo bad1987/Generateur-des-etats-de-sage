@@ -201,6 +201,7 @@ namespace Generateur_des_etats_de_sage
             begin = dateTimePicker1.Value;
             end = dateTimePicker2.Value;
             valider.Enabled = false;
+            dataGridView1.Rows.Clear();
             backgroundWorker1.RunWorkerAsync();
         }
 
