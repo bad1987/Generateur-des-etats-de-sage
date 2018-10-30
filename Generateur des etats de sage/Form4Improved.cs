@@ -308,6 +308,32 @@ namespace Generateur_des_etats_de_sage
             return strdec.Contains(".") ? strdec.TrimEnd('0').TrimEnd('.') : strdec;
         }
 
+        public static string formatMoney(string m)
+        {
+            string res = "";
+            string[] list = m.Split('.');
+            int j = 0;
+            string entiere = list[0];
+            for (int i = entiere.Length - 1; i >= 0; i--)
+            {
+                res = entiere[i] + res;
+                j++;
+                if (j == 3 && i > 0 && entiere[i - 1] != '-')
+                {
+                    res = " " + res;
+                    j = 0;
+                }
+            }
+
+
+            if (list.Length > 1)
+            {
+                res = res + "." + list[1];
+            }
+
+            return res;
+        }
+
         public void displayData1(node n)
         {
             int numcol;
@@ -320,7 +346,7 @@ namespace Generateur_des_etats_de_sage
 
             foreach (KeyValuePair<string, decimal> entry in n.CumulMois)
             {
-                row[k++] = DecimalToString(entry.Value);
+                row[k++] = formatMoney(DecimalToString(entry.Value));
             }
 
             //new method to add data

@@ -170,6 +170,32 @@ namespace Generateur_des_etats_de_sage
             return strdec.Contains(".") ? strdec.TrimEnd('0').TrimEnd('.') : strdec;
         }
 
+        public static string formatMoney(string m)
+        {
+            string res = "";
+            string[] list = m.Split('.');
+            int j = 0;
+            string entiere = list[0];
+            for (int i = entiere.Length - 1; i >= 0; i--)
+            {
+                res = entiere[i] + res;
+                j++;
+                if (j == 3 && i > 0 && entiere[i - 1] != '-')
+                {
+                    res = " " + res;
+                    j = 0;
+                }
+            }
+
+
+            if (list.Length > 1)
+            {
+                res = res + "." + list[1];
+            }
+
+            return res;
+        }
+
         private void ui()
         {
 
@@ -216,9 +242,9 @@ namespace Generateur_des_etats_de_sage
 
                 foreach(KeyValuePair<string,decimal>entry in n.caHtRegion)
                 {
-                    row[j++] = DecimalToString(entry.Value);
+                    row[j++] = formatMoney(DecimalToString(entry.Value));
                 }
-                row[j] = DecimalToString(n.totalHT);
+                row[j] = formatMoney(DecimalToString(n.totalHT));
 
                 if (dataGridView1.InvokeRequired)
                 {
@@ -253,7 +279,7 @@ namespace Generateur_des_etats_de_sage
 
                     for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                     {
-                        chart1.Series["Total CaHT"].Points.AddXY(dataGridView1.Rows[i].Cells[0].Value, Convert.ToDecimal(dataGridView1.Rows[i].Cells[numcol - 1].Value,CultureInfo.InvariantCulture));
+                        chart1.Series["Total CaHT"].Points.AddXY(dataGridView1.Rows[i].Cells[0].Value, Convert.ToDecimal(dataGridView1.Rows[i].Cells[numcol - 1].Value.ToString().Replace(" ", string.Empty), CultureInfo.InvariantCulture));
                         //chart1.Series["Total CaHT"]["PointWidth"] = "0.8";
                         chart1.AlignDataPointsByAxisLabel();
                     }
@@ -265,7 +291,7 @@ namespace Generateur_des_etats_de_sage
 
                 for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                 {
-                    chart1.Series["Total CaHT"].Points.AddXY(dataGridView1.Rows[i].Cells[0].Value, Convert.ToDecimal(dataGridView1.Rows[i].Cells[numcol - 1].Value,CultureInfo.InvariantCulture));
+                    chart1.Series["Total CaHT"].Points.AddXY(dataGridView1.Rows[i].Cells[0].Value, Convert.ToDecimal(dataGridView1.Rows[i].Cells[numcol - 1].Value.ToString().Replace(" ", string.Empty), CultureInfo.InvariantCulture));
                     //chart1.Series["Total CaHT"]["PointWidth"] = "0.8";
                     chart1.AlignDataPointsByAxisLabel();
                 }

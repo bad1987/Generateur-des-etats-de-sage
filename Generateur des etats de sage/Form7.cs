@@ -484,6 +484,32 @@ namespace Generateur_des_etats_de_sage
             }
         }
 
+        public static string formatMoney(string m)
+        {
+            string res = "";
+            string[] list = m.Split('.');
+            int j = 0;
+            string entiere = list[0];
+            for (int i = entiere.Length - 1; i >= 0; i--)
+            {
+                res = entiere[i] + res;
+                j++;
+                if (j == 3 && i > 0 && entiere[i - 1] != '-')
+                {
+                    res = " " + res;
+                    j = 0;
+                }
+            }
+
+
+            if (list.Length > 1)
+            {
+                res = res + "." + list[1];
+            }
+
+            return res;
+        }
+
         private void paintgui()
         {
             if (chart1.InvokeRequired)
@@ -526,8 +552,8 @@ namespace Generateur_des_etats_de_sage
             {
                 row = new string[3];
                 row[0] = cahtmarge[i].mois;
-                row[1] = DecimalToString(cahtmarge[i].caht);
-                row[2] = DecimalToString(cahtmarge[i].marge);
+                row[1] = formatMoney(DecimalToString(cahtmarge[i].caht));
+                row[2] = formatMoney(DecimalToString(cahtmarge[i].marge));
 
                 if (dataGridView1.InvokeRequired)
                 {
@@ -545,34 +571,34 @@ namespace Generateur_des_etats_de_sage
             if (cahtname.InvokeRequired)
             {
                 cahtname.Invoke(new Action(delegate () {
-                    cahtname.Text = DecimalToString(TotalcaHTclient);
+                    cahtname.Text = formatMoney(DecimalToString(TotalcaHTclient));
                 }));
             }
             else
             {
-                cahtname.Text = DecimalToString(TotalcaHTclient);
+                cahtname.Text = formatMoney(DecimalToString(TotalcaHTclient));
             }
 
             if (marg.InvokeRequired)
             {
                 marg.Invoke(new Action(delegate () {
-                    marg.Text = DecimalToString(TotalMargeclient);
+                    marg.Text = formatMoney(DecimalToString(TotalMargeclient));
                 }));
             }
             else
             {
-                marg.Text = DecimalToString(TotalMargeclient);
+                marg.Text = formatMoney(DecimalToString(TotalMargeclient));
             }
 
             if (quantitername.InvokeRequired)
             {
                 quantitername.Invoke(new Action(delegate () {
-                    quantitername.Text = DecimalToString(quantiteretourne);
+                    quantitername.Text = formatMoney(DecimalToString(quantiteretourne));
                 }));
             }
             else
             {
-                quantitername.Text = DecimalToString(quantiteretourne);
+                quantitername.Text = formatMoney(DecimalToString(quantiteretourne));
             }
 
             if (chart1.InvokeRequired)
@@ -582,7 +608,7 @@ namespace Generateur_des_etats_de_sage
 
                     for(int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                     {
-                        chart1.Series["evolution"].Points.AddXY(dataGridView1.Rows[i].Cells[0].Value, Convert.ToDecimal(dataGridView1.Rows[i].Cells[1].Value, CultureInfo.InvariantCulture));
+                        chart1.Series["evolution"].Points.AddXY(dataGridView1.Rows[i].Cells[0].Value, Convert.ToDecimal(dataGridView1.Rows[i].Cells[1].Value.ToString().Replace(" ",string.Empty), CultureInfo.InvariantCulture));
                     }
                 }));
             }
@@ -592,7 +618,7 @@ namespace Generateur_des_etats_de_sage
 
                 for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                 {
-                    chart1.Series["evolution"].Points.AddXY(dataGridView1.Rows[i].Cells[0].Value, Convert.ToDecimal(dataGridView1.Rows[i].Cells[1].Value, CultureInfo.InvariantCulture));
+                    chart1.Series["evolution"].Points.AddXY(dataGridView1.Rows[i].Cells[0].Value, Convert.ToDecimal(dataGridView1.Rows[i].Cells[1].Value.ToString().Replace(" ", string.Empty), CultureInfo.InvariantCulture));
                 }
             }
         }

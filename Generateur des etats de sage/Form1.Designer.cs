@@ -60,6 +60,7 @@
             this.utilisateursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.traitementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDesReglementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.valorisationAuPrixDachatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.resultat)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -200,14 +201,14 @@
             // testToolStripMenuItem
             // 
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.testToolStripMenuItem.Text = "test";
             this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -255,7 +256,8 @@
             this.clientsToolStripMenuItem,
             this.regionToolStripMenuItem,
             this.commerciauxToolStripMenuItem,
-            this.caHTParArticleToolStripMenuItem});
+            this.caHTParArticleToolStripMenuItem,
+            this.valorisationAuPrixDachatToolStripMenuItem});
             this.statistiquesToolStripMenuItem.Name = "statistiquesToolStripMenuItem";
             this.statistiquesToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.statistiquesToolStripMenuItem.Text = "Statistiques";
@@ -263,28 +265,28 @@
             // clientsToolStripMenuItem
             // 
             this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
-            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.clientsToolStripMenuItem.Text = "Clients";
             this.clientsToolStripMenuItem.Click += new System.EventHandler(this.clientsToolStripMenuItem_Click);
             // 
             // regionToolStripMenuItem
             // 
             this.regionToolStripMenuItem.Name = "regionToolStripMenuItem";
-            this.regionToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.regionToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.regionToolStripMenuItem.Text = "Region";
             this.regionToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
             // 
             // commerciauxToolStripMenuItem
             // 
             this.commerciauxToolStripMenuItem.Name = "commerciauxToolStripMenuItem";
-            this.commerciauxToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.commerciauxToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.commerciauxToolStripMenuItem.Text = "Commerciaux";
             this.commerciauxToolStripMenuItem.Click += new System.EventHandler(this.commerciauxToolStripMenuItem_Click);
             // 
             // caHTParArticleToolStripMenuItem
             // 
             this.caHTParArticleToolStripMenuItem.Name = "caHTParArticleToolStripMenuItem";
-            this.caHTParArticleToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.caHTParArticleToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.caHTParArticleToolStripMenuItem.Text = "CaHT par Article";
             this.caHTParArticleToolStripMenuItem.Click += new System.EventHandler(this.caHTParArticleToolStripMenuItem_Click);
             // 
@@ -341,6 +343,13 @@
             this.gestionDesReglementsToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.gestionDesReglementsToolStripMenuItem.Text = "Gestion des Reglements";
             this.gestionDesReglementsToolStripMenuItem.Click += new System.EventHandler(this.gestionDesReglementsToolStripMenuItem_Click);
+            // 
+            // valorisationAuPrixDachatToolStripMenuItem
+            // 
+            this.valorisationAuPrixDachatToolStripMenuItem.Name = "valorisationAuPrixDachatToolStripMenuItem";
+            this.valorisationAuPrixDachatToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.valorisationAuPrixDachatToolStripMenuItem.Text = "Valorisation au Prix D\'achat";
+            this.valorisationAuPrixDachatToolStripMenuItem.Click += new System.EventHandler(this.valorisationAuPrixDachatToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -407,6 +416,7 @@
         private System.Windows.Forms.ToolStripMenuItem caHTParArticleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem traitementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionDesReglementsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem valorisationAuPrixDachatToolStripMenuItem;
     }
 }
 

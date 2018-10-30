@@ -19,6 +19,7 @@ namespace Generateur_des_etats_de_sage
         private DateTime begin;
         private DateTime end;
         private List<node> lines;
+        private decimal Total;
         public Form15()
         {
             InitializeComponent();
@@ -95,6 +96,7 @@ namespace Generateur_des_etats_de_sage
             nouv.date = d.Date.ToString("dd/MM/yyyy");
             nouv.libelle = libelle;
             nouv.montant = DecimalToString(montant);
+            Total += montant;
             if(modeR == 1)
             {
                 nouv.mode = "CHEQUE";
@@ -123,6 +125,7 @@ namespace Generateur_des_etats_de_sage
         public void execute()
         {
             lines = new List<node>();
+            Total = 0;
 
             string sql = sqlFormat(begin.Date.ToString("yyyyMMdd"), end.Date.ToString("yyyyMMdd"));
 
@@ -139,6 +142,32 @@ namespace Generateur_des_etats_de_sage
             gui();
         }
 
+        public static string formatMoney(string m)
+        {
+            string res = "";
+            string[] list = m.Split('.');
+            int j = 0;
+            string entiere = list[0];
+            for (int i = entiere.Length - 1; i >= 0; i--)
+            {
+                res = entiere[i] + res;
+                j++;
+                if (j == 3 && i > 0 && entiere[i - 1] != '-')
+                {
+                    res = " " + res;
+                    j = 0;
+                }
+            }
+
+
+            if (list.Length > 1)
+            {
+                res = res + "." + list[1];
+            }
+
+            return res;
+        }
+
         public void gui()
         {
             string[] row;
@@ -153,7 +182,7 @@ namespace Generateur_des_etats_de_sage
                 row[4] = n.libelle;
                 row[5] = n.mode;
                 row[6] = n.reglement;
-                row[7] = n.montant;
+                row[7] = formatMoney(n.montant);
 
 
                 if (dataGridView1.InvokeRequired)
@@ -166,6 +195,18 @@ namespace Generateur_des_etats_de_sage
                 {
                     dataGridView1.Rows.Add(row);
                 }
+            }
+
+            if (total.InvokeRequired)
+            {
+                total.Invoke(new Action(delegate () {
+          
+                   total.Text = formatMoney(DecimalToString(Total));
+                }));
+            }
+            else
+            {
+                total.Text = formatMoney(DecimalToString(Total));
             }
         }
 

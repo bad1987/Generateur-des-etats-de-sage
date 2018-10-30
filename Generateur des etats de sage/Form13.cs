@@ -100,6 +100,32 @@ namespace Generateur_des_etats_de_sage
             return strdec.Contains(".") ? strdec.TrimEnd('0').TrimEnd('.') : strdec;
         }
 
+        public static string formatMoney(string m)
+        {
+            string res = "";
+            string[] list = m.Split('.');
+            int j = 0;
+            string entiere = list[0];
+            for (int i = entiere.Length - 1; i >= 0; i--)
+            {
+                res = entiere[i] + res;
+                j++;
+                if (j == 3 && i > 0 && entiere[i - 1] != '-')
+                {
+                    res = " " + res;
+                    j = 0;
+                }
+            }
+
+
+            if (list.Length > 1)
+            {
+                res = res + "." + list[1];
+            }
+
+            return res;
+        }
+
         public void gui()
         {
             string[] row;
@@ -109,7 +135,7 @@ namespace Generateur_des_etats_de_sage
                 row = new string[3];
                 row[0] = n.designation;
                 //row[1] = DecimalToString(n.prixVente);
-                row[1] = DecimalToString(n.prixVenteMagore);
+                row[1] = formatMoney(DecimalToString(n.prixVenteMagore));
 
                 if (dataGridView1.InvokeRequired)
                 {

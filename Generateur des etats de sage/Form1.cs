@@ -111,7 +111,7 @@ namespace Generateur_des_etats_de_sage
             SqlDataReader dataReader;
             string sql, outpout = "";
 
-            sql = "SELECT distinct AR_Design as 'designation' FROM F_ARTICLE order by designation";
+            sql = "SELECT distinct AR_Design as 'designation' FROM F_ARTICLE where AR_Sommeil = 0 order by designation";
 
             command = new SqlCommand(sql, cnn);
             dataReader = command.ExecuteReader();
@@ -228,6 +228,12 @@ namespace Generateur_des_etats_de_sage
         {
             Form15 gesreg = new Form15();
             gesreg.Show();
+        }
+
+        private void valorisationAuPrixDachatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form16 achatv = new Form16();
+            achatv.Show();
         }
     }
 }

@@ -168,6 +168,32 @@ namespace Generateur_des_etats_de_sage
             gui();
         }
 
+        public static string formatMoney(string m)
+        {
+            string res = "";
+            string[] list = m.Split('.');
+            int j = 0;
+            string entiere = list[0];
+            for (int i = entiere.Length - 1; i >= 0; i--)
+            {
+                res = entiere[i] + res;
+                j++;
+                if (j == 3 && i > 0 && entiere[i - 1] != '-')
+                {
+                    res = " " + res;
+                    j = 0;
+                }
+            }
+
+
+            if (list.Length > 1)
+            {
+                res = res + "." + list[1];
+            }
+
+            return res;
+        }
+
         public void gui()
         {
             string[] row;
@@ -177,9 +203,9 @@ namespace Generateur_des_etats_de_sage
                 row = new string[6];
                 row[0] = n.reference;
                 row[1] = n.designation;
-                row[2] = DecimalToString(n.caht);
-                row[3] = DecimalToString(n.marge);
-                row[4] = DecimalToString(n.quantite);
+                row[2] = formatMoney(DecimalToString(n.caht));
+                row[3] = formatMoney(DecimalToString(n.marge));
+                row[4] = formatMoney(DecimalToString(n.quantite));
                 row[5] = DecimalToString(n.pourcentage);
 
 
