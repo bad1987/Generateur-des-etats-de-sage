@@ -67,15 +67,21 @@ namespace Generateur_des_etats_de_sage
         public void execute()
         {
             string sql;
+            /* sql = @"SELECT DISTINCT AR_Design
+                     ,AR_PrixVen
+                     FROM F_ARTICLE,F_LOTSERIE 
+                     WHERE F_ARTICLE.AR_Ref = F_LOTSERIE.AR_Ref
+                         AND ((F_LOTSERIE.DE_No=1) 
+                         AND LS_QteRestant > 0) 
+                         AND LS_Peremption > '20000101'
+                         and AR_Sommeil = 0
+                         and AR_PrixVen > 0
+             ";*/
+
             sql = @"SELECT DISTINCT AR_Design
 				    ,AR_PrixVen
-                    FROM F_ARTICLE,F_LOTSERIE 
-                    WHERE F_ARTICLE.AR_Ref = F_LOTSERIE.AR_Ref
-	                    AND ((F_LOTSERIE.DE_No=1) 
-	                    AND LS_QteRestant > 0) 
-	                    AND LS_Peremption > '20000101'
-	                    and AR_Sommeil = 0
-	                    and AR_PrixVen > 0
+                    FROM F_ARTICLE
+                    WHERE AR_Sommeil = 0
             ";
 
             articles = new List<node>();
@@ -234,6 +240,14 @@ namespace Generateur_des_etats_de_sage
         private void fermer_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void taux_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                valider_Click(sender, e);
+            }
         }
     }
 

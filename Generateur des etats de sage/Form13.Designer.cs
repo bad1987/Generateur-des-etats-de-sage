@@ -32,11 +32,11 @@
             this.taux = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.article = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prixVente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valider = new System.Windows.Forms.Button();
             this.export = new System.Windows.Forms.Button();
             this.fermer = new System.Windows.Forms.Button();
-            this.article = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prixVente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,6 +56,7 @@
             this.taux.Name = "taux";
             this.taux.Size = new System.Drawing.Size(100, 20);
             this.taux.TabIndex = 1;
+            this.taux.KeyDown += new System.Windows.Forms.KeyEventHandler(this.taux_KeyDown);
             // 
             // label2
             // 
@@ -79,6 +80,18 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(634, 351);
             this.dataGridView1.TabIndex = 3;
+            // 
+            // article
+            // 
+            this.article.HeaderText = "ARTICLE";
+            this.article.Name = "article";
+            this.article.Width = 77;
+            // 
+            // prixVente
+            // 
+            this.prixVente.HeaderText = "PRIX DE VENTE";
+            this.prixVente.Name = "prixVente";
+            this.prixVente.Width = 105;
             // 
             // valider
             // 
@@ -113,18 +126,6 @@
             this.fermer.UseVisualStyleBackColor = true;
             this.fermer.Click += new System.EventHandler(this.fermer_Click);
             // 
-            // article
-            // 
-            this.article.HeaderText = "ARTICLE";
-            this.article.Name = "article";
-            this.article.Width = 77;
-            // 
-            // prixVente
-            // 
-            this.prixVente.HeaderText = "PRIX DE VENTE";
-            this.prixVente.Name = "prixVente";
-            this.prixVente.Width = 105;
-            // 
             // Form13
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,7 +140,7 @@
             this.Controls.Add(this.taux);
             this.Controls.Add(this.label1);
             this.Name = "Form13";
-            this.Text = "Form13";
+            this.Text = "prix majore";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
