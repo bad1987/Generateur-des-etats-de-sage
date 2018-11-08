@@ -16,7 +16,7 @@ namespace Generateur_des_etats_de_sage
     {
         private SqlConnection cnn;
         private string computerName;
-        private int majoration;
+        private double majoration;
         private List<node> articles;
 
         public Form13()
@@ -59,7 +59,7 @@ namespace Generateur_des_etats_de_sage
 
             nouveau.designation = design;
             nouveau.prixVente = pv;
-            nouveau.prixVenteMagore = pv + Math.Round((pv * majoration) / 100,2);
+            nouveau.prixVenteMagore = pv + Math.Round((pv * (decimal)majoration) / 100,2);
 
             articles.Add(nouveau);
         }
@@ -152,7 +152,17 @@ namespace Generateur_des_etats_de_sage
 
         private void valider_Click(object sender, EventArgs e)
         {
-            majoration = int.Parse(taux.Text);
+            dataGridView1.Rows.Clear();
+            try
+            {
+                majoration = double.Parse(taux.Text, CultureInfo.InvariantCulture);
+            }
+            catch
+            {
+                MessageBox.Show("VALEUR INCORRECTE", "valeur erronee", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            
 
             execute();
         }
