@@ -60,7 +60,7 @@ namespace Generateur_des_etats_de_sage
                 FROM F_DOCLIGNE 
                 where DO_Domaine=0 
 	                AND DO_Date=DATEADD(d,DATEDIFF(d,0,GETDATE()),0) 
-	                and (DO_Type=3 or DO_Type=6 or DO_Type=7)
+	                and (DO_Type=3 or DO_Type=6)
                 group by DL_Design
             ";
 

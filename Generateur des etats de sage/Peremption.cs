@@ -27,6 +27,9 @@ namespace Generateur_des_etats_de_sage
             public decimal qteStockReel { get; set; }
             public decimal qteStockDispo { get; set; }
             public decimal qteVendue { get; set; }
+            public decimal prixVen { get; set; }
+            public decimal valorisation { get; set; }
+            public string depot { get; set; }
         }
 
         public Form10()
@@ -50,7 +53,7 @@ namespace Generateur_des_etats_de_sage
             }
 
             //connectionString = @"Data Source={0};Initial Catalog=SIAP COMPTA SQL 1;User ID=bad1987;Password=bad1987";
-            connectionString = "Data Source={0};Initial Catalog=SIAP COMPTA SQL 1;Integrated Security = SSPI;";
+            connectionString = "Data Source={0};Initial Catalog=SIAP COMPTA SQL 1;Integrated Security = SSPI;MultipleActiveResultSets=True;";
             connectionString = string.Format(connectionString, cn);
             cnn = new SqlConnection(connectionString);
             cnn.Open();
@@ -60,11 +63,12 @@ namespace Generateur_des_etats_de_sage
         {
             string sql;
             sql = @"
-                SELECT F_ARTICLE.AR_Ref,AR_Design,LS_NoSerie,LS_Peremption,LS_Qte,LS_QteRestant,(LS_Qte - LS_QteRestant) as 'Quantite vendue'
-                FROM F_ARTICLE,F_LOTSERIE 
+                SELECT F_ARTICLE.AR_Ref,AR_Design,LS_NoSerie,LS_Peremption,LS_Qte,LS_QteRestant,DE_Intitule
+                FROM F_ARTICLE,F_LOTSERIE,F_DEPOT
                 WHERE F_ARTICLE.AR_Ref = F_LOTSERIE.AR_Ref
-	                AND ((F_LOTSERIE.DE_No=1) 
-	                AND LS_QteRestant > 0) 
+	                AND F_DEPOT.DE_No = F_LOTSERIE.DE_No
+	                --AND (LS_Qte > 0)
+	                AND LS_LotEpuise = 0
 	                AND LS_Peremption > '20000101'
             ";
 
@@ -103,6 +107,31 @@ namespace Generateur_des_etats_de_sage
             return res;
         }
 
+        public decimal articleInfo(string artRef)
+        {
+            string request = @"
+                select AR_PrixVen
+                from F_ARTICLE
+                where AR_Sommeil=0
+                and AR_Ref = '{0}'
+            ";
+            request = string.Format(request, artRef);
+
+            decimal prix = decimal.Zero;
+            using(SqlCommand cmd = new SqlCommand(request, cnn))
+            {
+                using(SqlDataReader dr = cmd.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        prix = dr.GetDecimal(0);
+                    }
+                }
+            }
+
+            return prix;
+        }
+
         public void extractData()
         {
             string[] row;
@@ -122,12 +151,15 @@ namespace Generateur_des_etats_de_sage
                         noeud.peremption = dr.GetDateTime(3);
                         noeud.qteStockReel = dr.GetDecimal(4);
                         noeud.qteStockDispo = dr.GetDecimal(5);
-                        noeud.qteVendue = dr.GetDecimal(6);
+                        //noeud.qteVendue = dr.GetDecimal(6);
+                        noeud.prixVen = articleInfo(noeud.Reference);
+                        noeud.valorisation = noeud.prixVen * noeud.qteStockReel;
+                        noeud.depot = dr.GetString(6);
 
                         liste.Add(noeud);
 
                         row = new string[dataGridView1.ColumnCount];
-                        for(int j = 0; j < dataGridView1.ColumnCount; j++)
+                        for(int j = 0; j < dataGridView1.ColumnCount - 2; j++)
                         {
                             if (j <= 2)
                             {
@@ -143,6 +175,8 @@ namespace Generateur_des_etats_de_sage
                             }
                             
                         }
+                        row[dataGridView1.ColumnCount - 2] = DecimalToString(noeud.valorisation);
+                        row[dataGridView1.ColumnCount - 1] = noeud.depot;
                         if (dataGridView1.InvokeRequired)
                         {
                             dataGridView1.Invoke(new Action(delegate () {
@@ -152,6 +186,23 @@ namespace Generateur_des_etats_de_sage
                         else
                         {
                             dataGridView1.Rows.Add(row);
+                        }
+                    }
+
+                    if (dataGridView1.InvokeRequired)
+                    {
+                        dataGridView1.Invoke(new Action(delegate () {
+                            if (dataGridView1.Rows.Count > 0)
+                            {
+                                dataGridView1.ClearSelection();
+                            }
+                        }));
+                    }
+                    else
+                    {
+                        if (dataGridView1.Rows.Count > 0)
+                        {
+                            dataGridView1.ClearSelection();
                         }
                     }
                 }
@@ -201,11 +252,17 @@ namespace Generateur_des_etats_de_sage
                     row[i++] = n.peremption.ToString();
                     row[i++] = DecimalToString(n.qteStockReel);
                     row[i++] = DecimalToString(n.qteStockDispo);
-                    row[i++] = DecimalToString(n.qteVendue);
+                    //row[i++] = DecimalToString(n.qteVendue);
+                    row[i++] = DecimalToString(n.valorisation);
+                    row[i++] = n.depot;
 
                     dataGridView1.Rows.Add(row);
                 }
                 
+            }
+            if (dataGridView1.Rows.Count > 0)
+            {
+                dataGridView1.ClearSelection();
             }
             annuler.Enabled = true;
         }
@@ -225,10 +282,15 @@ namespace Generateur_des_etats_de_sage
                 row[i++] = n.peremption.ToString();
                 row[i++] = DecimalToString(n.qteStockReel);
                 row[i++] = DecimalToString(n.qteStockDispo);
-                row[i++] = DecimalToString(n.qteVendue);
-
+                //row[i++] = DecimalToString(n.qteVendue);
+                row[i++] = DecimalToString(n.valorisation);
+                row[i++] = n.depot;
                 dataGridView1.Rows.Add(row);
 
+            }
+            if(dataGridView1.Rows.Count > 0)
+            {
+                dataGridView1.ClearSelection();
             }
             annuler.Enabled = false;
         }
@@ -263,16 +325,16 @@ namespace Generateur_des_etats_de_sage
 
             for (int i = 0; i < dataGridView1.ColumnCount; i++)
             {
-                xlworksheet.Cells[2, i + 1] = dataGridView1.Columns[i].Name;
+                xlworksheet.Cells[2, i + 1] = dataGridView1.Columns[i].HeaderText;
             }
 
             xlworksheet.Range["A2", "Z2"].Font.Bold = true;
 
-            for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+            for (int i = 0; i < dataGridView1.RowCount; i++)
             {
                 for (int j = 0; j < dataGridView1.ColumnCount; j++)
                 {
-                    if (j > 3)
+                    if (j > 3 && j != dataGridView1.ColumnCount - 1)
                     {
                         if (dataGridView1.Rows[i].Cells[j].Value != null)
                         {

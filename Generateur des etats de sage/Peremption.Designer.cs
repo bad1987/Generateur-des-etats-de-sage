@@ -29,28 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.actualiser = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.reference = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.designation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numero_serie = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date_peremption = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qte_stock_reel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qte_stock_dispo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qte_vendue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fermer = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.annuler = new System.Windows.Forms.Button();
@@ -61,6 +55,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.exporter = new System.Windows.Forms.Button();
+            this.reference = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.designation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numero_serie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date_peremption = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qte_stock_reel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qte_stock_dispo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dep = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -86,7 +88,7 @@
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1242, 47);
+            this.panel1.Size = new System.Drawing.Size(1154, 47);
             this.panel1.TabIndex = 1;
             // 
             // actualiser
@@ -104,18 +106,24 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.reference,
@@ -124,110 +132,42 @@
             this.date_peremption,
             this.qte_stock_reel,
             this.qte_stock_dispo,
-            this.qte_vendue});
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Times New Roman", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle19;
+            this.valo,
+            this.dep});
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Times New Roman", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dataGridView1.Location = new System.Drawing.Point(0, 167);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(1242, 529);
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(1154, 529);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // reference
-            // 
-            this.reference.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.reference.DefaultCellStyle = dataGridViewCellStyle12;
-            this.reference.HeaderText = "REFERENCE";
-            this.reference.Name = "reference";
-            this.reference.Width = 114;
-            // 
-            // designation
-            // 
-            this.designation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.designation.DefaultCellStyle = dataGridViewCellStyle13;
-            this.designation.HeaderText = "DESIGNATION";
-            this.designation.Name = "designation";
-            this.designation.Width = 120;
-            // 
-            // numero_serie
-            // 
-            this.numero_serie.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.numero_serie.DefaultCellStyle = dataGridViewCellStyle14;
-            this.numero_serie.HeaderText = "NUMERO SERIE";
-            this.numero_serie.Name = "numero_serie";
-            this.numero_serie.Width = 121;
-            // 
-            // date_peremption
-            // 
-            this.date_peremption.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.Format = "d";
-            dataGridViewCellStyle15.NullValue = null;
-            this.date_peremption.DefaultCellStyle = dataGridViewCellStyle15;
-            this.date_peremption.HeaderText = "DATE PEREMPTION";
-            this.date_peremption.Name = "date_peremption";
-            this.date_peremption.Width = 142;
-            // 
-            // qte_stock_reel
-            // 
-            this.qte_stock_reel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.Lime;
-            dataGridViewCellStyle16.Format = "N0";
-            dataGridViewCellStyle16.NullValue = null;
-            this.qte_stock_reel.DefaultCellStyle = dataGridViewCellStyle16;
-            this.qte_stock_reel.HeaderText = "QUANTITE STOCK REEL";
-            this.qte_stock_reel.Name = "qte_stock_reel";
-            this.qte_stock_reel.Width = 134;
-            // 
-            // qte_stock_dispo
-            // 
-            this.qte_stock_dispo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle17.Format = "N0";
-            dataGridViewCellStyle17.NullValue = null;
-            this.qte_stock_dispo.DefaultCellStyle = dataGridViewCellStyle17;
-            this.qte_stock_dispo.HeaderText = "QUANTITE STOCK DISPONIBLE";
-            this.qte_stock_dispo.Name = "qte_stock_dispo";
-            this.qte_stock_dispo.Width = 204;
-            // 
-            // qte_vendue
-            // 
-            this.qte_vendue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Yellow;
-            dataGridViewCellStyle18.Format = "N0";
-            dataGridViewCellStyle18.NullValue = null;
-            this.qte_vendue.DefaultCellStyle = dataGridViewCellStyle18;
-            this.qte_vendue.HeaderText = "QUANTITE VENDUE";
-            this.qte_vendue.Name = "qte_vendue";
-            this.qte_vendue.Width = 142;
             // 
             // fermer
             // 
             this.fermer.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fermer.Location = new System.Drawing.Point(1138, 50);
+            this.fermer.Location = new System.Drawing.Point(1061, 50);
             this.fermer.Name = "fermer";
-            this.fermer.Size = new System.Drawing.Size(99, 30);
+            this.fermer.Size = new System.Drawing.Size(93, 30);
             this.fermer.TabIndex = 4;
             this.fermer.Text = "FERMER";
             this.fermer.UseVisualStyleBackColor = true;
@@ -329,12 +269,94 @@
             this.exporter.UseVisualStyleBackColor = true;
             this.exporter.Click += new System.EventHandler(this.exporter_Click);
             // 
+            // reference
+            // 
+            this.reference.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.reference.DefaultCellStyle = dataGridViewCellStyle3;
+            this.reference.HeaderText = "REFERENCE";
+            this.reference.Name = "reference";
+            this.reference.ReadOnly = true;
+            this.reference.Width = 114;
+            // 
+            // designation
+            // 
+            this.designation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.designation.DefaultCellStyle = dataGridViewCellStyle4;
+            this.designation.HeaderText = "DESIGNATION";
+            this.designation.Name = "designation";
+            this.designation.ReadOnly = true;
+            this.designation.Width = 120;
+            // 
+            // numero_serie
+            // 
+            this.numero_serie.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.numero_serie.DefaultCellStyle = dataGridViewCellStyle5;
+            this.numero_serie.HeaderText = "NUMERO SERIE";
+            this.numero_serie.Name = "numero_serie";
+            this.numero_serie.ReadOnly = true;
+            this.numero_serie.Width = 121;
+            // 
+            // date_peremption
+            // 
+            this.date_peremption.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            this.date_peremption.DefaultCellStyle = dataGridViewCellStyle6;
+            this.date_peremption.HeaderText = "DATE PEREMPTION";
+            this.date_peremption.Name = "date_peremption";
+            this.date_peremption.ReadOnly = true;
+            this.date_peremption.Width = 142;
+            // 
+            // qte_stock_reel
+            // 
+            this.qte_stock_reel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Lime;
+            dataGridViewCellStyle7.Format = "N0";
+            dataGridViewCellStyle7.NullValue = null;
+            this.qte_stock_reel.DefaultCellStyle = dataGridViewCellStyle7;
+            this.qte_stock_reel.HeaderText = "QUANTITE ENTREE";
+            this.qte_stock_reel.Name = "qte_stock_reel";
+            this.qte_stock_reel.ReadOnly = true;
+            this.qte_stock_reel.Width = 114;
+            // 
+            // qte_stock_dispo
+            // 
+            this.qte_stock_dispo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle8.Format = "N0";
+            dataGridViewCellStyle8.NullValue = null;
+            this.qte_stock_dispo.DefaultCellStyle = dataGridViewCellStyle8;
+            this.qte_stock_dispo.HeaderText = "QUANTITE RESTANTE";
+            this.qte_stock_dispo.Name = "qte_stock_dispo";
+            this.qte_stock_dispo.ReadOnly = true;
+            this.qte_stock_dispo.Width = 90;
+            // 
+            // valo
+            // 
+            this.valo.HeaderText = "VALORISATION";
+            this.valo.Name = "valo";
+            this.valo.ReadOnly = true;
+            this.valo.Width = 127;
+            // 
+            // dep
+            // 
+            this.dep.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dep.HeaderText = "DEPOT";
+            this.dep.Name = "dep";
+            this.dep.ReadOnly = true;
+            // 
             // Form10
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateGray;
-            this.ClientSize = new System.Drawing.Size(1244, 697);
+            this.ClientSize = new System.Drawing.Size(1156, 697);
             this.Controls.Add(this.exporter);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.fermer);
@@ -361,13 +383,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button fermer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reference;
-        private System.Windows.Forms.DataGridViewTextBoxColumn designation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numero_serie;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date_peremption;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qte_stock_reel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qte_stock_dispo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qte_vendue;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button annuler;
         private System.Windows.Forms.Button filtrer;
@@ -377,5 +392,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button exporter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reference;
+        private System.Windows.Forms.DataGridViewTextBoxColumn designation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numero_serie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date_peremption;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qte_stock_reel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qte_stock_dispo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dep;
     }
 }

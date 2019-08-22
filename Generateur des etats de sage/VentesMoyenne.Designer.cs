@@ -1,6 +1,6 @@
 ﻿namespace Generateur_des_etats_de_sage
 {
-    partial class Form3Improved
+    partial class VentesMoyenne
     {
         /// <summary>
         /// Required designer variable.

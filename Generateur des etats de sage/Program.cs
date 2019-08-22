@@ -16,7 +16,8 @@ namespace Generateur_des_etats_de_sage
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //Application.Run(new Form1());
+            Application.Run(new Accueil());
         }
     }
 }

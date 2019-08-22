@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Generateur_des_etats_de_sage
 {
-    public partial class Form3Improved : Form
+    public partial class VentesMoyenne : Form
     {
         //class properties
         SqlConnection cnn,cnnp;
@@ -32,14 +32,14 @@ namespace Generateur_des_etats_de_sage
             vaut 0 si l'operation est basee sur les factures, 1 si il s'agit des devis
          */
 
-        public Form3Improved()
+        public VentesMoyenne()
         {
             InitializeComponent();
             dbcon();
             initArticles();
         }
 
-         ~Form3Improved()
+         ~VentesMoyenne()
         {
            // cnn.Close();
         }
@@ -74,8 +74,6 @@ namespace Generateur_des_etats_de_sage
         {
             return cnn;
         }
-
-
         //methods
 
         /*get all articles*/
@@ -521,19 +519,24 @@ namespace Generateur_des_etats_de_sage
             return tmp;
         }
 
+        public void initData(DateTime dat1,DateTime dat2,int choice)
+        {
+            //type de traitement
+            setChoix(choice);
+
+            //retrieving all the dates contained in the given period as well as all months
+            initdate(dat1, dat2);
+            initMonth();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             DateTime dat1, dat2;
             dat1 = dateTimePicker1.Value;
             dat2 = dateTimePicker2.Value;
 
-            //type de traitement
-            setChoix(0);
-
-            //retrieving all the dates contained in the given period as well as all months
-            initdate(dat1,dat2);
-            initMonth();
-
+            initData(dat1, dat2, 0);
+            
             //initializing the datagridview
             resultatMensuel.Columns.Clear();
             prepareui();
@@ -659,12 +662,7 @@ namespace Generateur_des_etats_de_sage
             dat1 = dateTimePicker1.Value;
             dat2 = dateTimePicker2.Value;
 
-            //type de traitement
-            setChoix(1);
-
-            //retrieving all the dates contained in the given period as well as all months
-            initdate(dat1, dat2);
-            initMonth();
+            initData(dat1, dat2, 1);
 
             //initializing the datagridview
             resultatMensuel.Columns.Clear();

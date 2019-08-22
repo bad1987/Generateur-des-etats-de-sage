@@ -58,6 +58,7 @@ namespace Generateur_des_etats_de_sage
         {
             string sql;
             sql = @"
+                dbcc cbsqlxp(free)
                 delete from cbNotification where cbSession = {0}
                 delete from cbRegMessage where cbSession = {0}
                 delete from cbUserSession where cbSession = {0}
